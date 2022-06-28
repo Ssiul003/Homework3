@@ -1,0 +1,44 @@
+/*The program should run if the prompts are followed. I believe it's pretty basic
+because it has two options between rectangle or circle. I could've added a square and 
+include the or operator because rectangle and squares are similar. In my if statement
+I originally had shape==rectangle but that wouldn't run my if statements. However, I
+remember the string method .equals from my previous CISC 1115 class and it ran the 
+if statements completely.
+
+ */
+package su22hw3;
+
+import java.util.Scanner;
+
+public class Su22Hw3 {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        double radius, circumference, area;
+        int length, width, area2, perimeter;
+        final double PI = 3.141592653589793;
+        String shape, rectangle = "rectangle", circle = "circle";
+        System.out.println("Please enter the shape option you want:rectangle or circle");
+        while (sc.hasNext()) {
+            shape = sc.next();
+            if (shape.equals(rectangle)) {
+                System.out.println("Please enter length and width for rectangle");
+                length = sc.nextInt();
+                width = sc.nextInt();
+                area2 = length * width;
+                perimeter = 2 * (length + width);
+                System.out.printf("The area is %d and perimeter is %d\n", area2, perimeter);
+
+            } 
+            else if (shape.equals(circle)) {
+                System.out.println("Please enter the radius for a circle");
+                radius = sc.nextDouble();
+                area = PI * (radius * radius);
+                circumference = 2 * PI * radius;
+                System.out.printf("The area is %.2f and circumference is %.2f\n", area, circumference);
+            }
+            System.out.println("Please enter the shape option you want:rectangle or circle");
+        }
+    }
+}
+
